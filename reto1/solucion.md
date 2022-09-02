@@ -9,7 +9,7 @@ se crea un contenedor con las siguientes caracteristicas
 
 script bash to docker:  
 
-https://github.com/wnervhq/bootcamp-3-challenge/blob/ffa1913c69371bd81b888e0077ea9c72eb12dbc4/reto1/scripts/script1.sh
+https://github.com/wnervhq/bootcamp-3-challenge/blob/1edcf30aa1662c08d1ef516115c37728be321946/reto1/scripts/script1.sh#L1-L14
 
 ## Desarrollo 
 1. Pantallazo donde se vea la creación del contenedor y podamos comprobar que el contenedor está funcionando.
