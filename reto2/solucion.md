@@ -9,7 +9,7 @@ se crea un contenedor con las siguientes caracteristicas
 
 script bash to docker:  
 
-https://github.com/wnervhq/bootcamp-3-challenge/blob/master/reto2/scripts/script1.sh#L1-L14
+https://github.com/wnervhq/bootcamp-3-challenge/blob/62987ed41a81a234d77c10ac3246f421004f66d4/reto2/scripts/script1.sh#L1-L14
 
 ## Desarrollo 
 1. Arrancar un contenedor que se llame `bbdd` y que ejecute una instancia de la imagen **mariadb** para que sea accesible desde el puerto 3306. Establecer variables de entorno.
