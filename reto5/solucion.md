@@ -16,10 +16,10 @@ se crea un contenedor con las siguientes caracteristicas
 
 Dockeriza la carpeta [hello-bootcamp](https://raw.githubusercontent.com/roxsross/bootcamp-3-challenge/master/reto5/hello-bootcamp/index.html)
 
-- Ejecuta un contenedor con la imagen
+- Ejecuta un contenedor con la imagen  
 ![Contenedor](images/contenedorEjecutado.png)
 
-- Subir la aplicacion en registry
+- Subir la aplicacion en registry  
 ![hub](images/hub.png)
 
 	podemos descargar el contenedor usando el siguiente comando  
