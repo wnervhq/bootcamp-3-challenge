@@ -24,6 +24,8 @@ https://github.com/wnervhq/bootcamp-3-challenge/blob/39468bf29c647c8dbe290a0d8fb
 Crea una base de datos llamada `Library` con una colección llamada `Books`.
 Importa los datos de [books.json]
 
+    se creó un tercer contenedor que se encargar de poblar `MongoDB` de acuerdo a lo solicitado, terminado la creacion de la BD y el llenado de datos este se inactiva
+
 https://github.com/wnervhq/bootcamp-3-challenge/blob/39468bf29c647c8dbe290a0d8fb1c3ddc7c4f939/reto6-bonus/Dockerfile#L1-L13
 
 ![mongo_express](images/mongo-express.png)
