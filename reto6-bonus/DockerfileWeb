@@ -1,0 +1,6 @@
+FROM nginx
+
+LABEL maintainer="luis.molina.calizaya@gmail.com"
+LABEL project="bootcamp-web"
+
+COPY bootcamp-web/ /usr/share/nginx/html
