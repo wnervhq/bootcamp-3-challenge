@@ -1,11 +1,10 @@
 # Solución reto 8
 Para resolver el ejercicio se procedio a implementar un script principal de nombre **reto8.sh** como menú gestor de scripts con diferenciones opciones a ejecutar.  
 
-    se hizo una modificacion al archivo Dockerfile para que mejorar el manejo de paquetes del archivo requirements.txt haciendo uso de pip-compile.   
+- se hizo una modificacion al archivo Dockerfile para que mejorar el manejo de paquetes del archivo requirements.txt haciendo uso de pip-compile.   
+- asi mismo se agrego el archivo requirements.inv necesario para trabajar en conjunto con pip-compile   
 
 https://github.com/wnervhq/pokepy/blob/c920e5807931c6238ddfdee3907e2e4f1989d02b/Dockerfile#L9-L14   
-
-    asi mismo se agrego el archivo requirements.inv necesario para trabajar en conjunto con pip-compile   
 
 https://github.com/wnervhq/pokepy/blob/c920e5807931c6238ddfdee3907e2e4f1989d02b/requirements.in#L1-L2   
 
