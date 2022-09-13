@@ -6,8 +6,6 @@ Para resolver el ejercicio se procedio a implementar un script principal de nomb
 
 https://github.com/wnervhq/pokepy/blob/c920e5807931c6238ddfdee3907e2e4f1989d02b/Dockerfile#L9-L14   
 
-https://github.com/wnervhq/pokepy/blob/c920e5807931c6238ddfdee3907e2e4f1989d02b/requirements.in#L1-L2   
-
 ![script0](images/start.png)   
 
 1. Clona el repositorio de <https://github.com/roxsross/pokepy> en esta ubicación  
