@@ -5,53 +5,76 @@ services:
   # MySQL database
   db: 
     image: mysql:latest
+    env_file:
+      - .env
     networks:
       - hellodevops-net
     ports:
-      - "3306:3306"
+      - "$ENV_MYSQL_PORT:$ENV_MYSQL_PORT"
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
-      - .:/docker-entrypoint-initdb.d
+      - db:/var/lib/mysql
+      - ./create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
     environment: 
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: $ENV_MYSQL_PASSWORD
   
   # RabbitMQ 
   mq:
     image: rabbitmq:3
+    env_file:
+      - .env
     networks:
       - hellodevops-net
     ports:
-      - "5672:5762"
+      - "$ENV_RABBITMQ_PORT:$ENV_RABBITMQ_PORT"
+    depends_on:
+      - db
   
   # hello-node application
   hello-node:
     build: ../hello-node
-    volumes: 
-      - ../hello-node:/opt/hello-node
+    env_file:
+      - .env
     networks:
       - hellodevops-net
     ports:
-      - "9443:9443"
+      - "$ENV_NODE_PORT:$ENV_NODE_PORT"
     restart: on-failure
     environment:
-      RABBITMQ_HOST: mq
-      MYSQL_HOST: db
-      MYSQL_PASSWORD: password
+      RABBITMQ_HOST: $ENV_RABBITMQ_HOST
+      RABBITMQ_PORT: $ENV_RABBITMQ_PORT
+      RABBITMQ_QUEUE: $ENV_RABBITMQ_QUEUE
+      MYSQL_HOST: $ENV_MYSQL_HOST
+      MYSQL_PORT: $ENV_MYSQL_PORT
+      MYSQL_USER: $ENV_MYSQL_USER
+      MYSQL_PASSWORD: $ENV_MYSQL_PASSWORD
+      MYSQL_DB: $ENV_MYSQL_DB
+    depends_on:
+      - db
+      - mq
+    entrypoint: [ "/opt/hello-node/scripts/vestidoAzul.sh"]
 
   # hello-python application
   hello-python:
     build: ../hello-python
-    volumes: 
-      - ../hello-python:/opt/hello-python
+    env_file:
+      - .env
     networks:
       - hellodevops-net
     ports:
-      - "8080:8080"
+      - "$ENV_PYTHON_PORT:$ENV_PYTHON_PORT"
     environment:
-      RABBITMQ_HOST: mq
+      RABBITMQ_HOST: $ENV_RABBITMQ_HOST
+      RABBITMQ_PORT: $ENV_RABBITMQ_PORT
+      RABBITMQ_QUEUE: $ENV_RABBITMQ_QUEUE
+    depends_on:
+      - mq
 
 networks:
   hellodevops-net:
     driver: bridge
 
+volumes:
+  db:
+    driver: local

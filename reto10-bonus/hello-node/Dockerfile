@@ -8,8 +8,16 @@ WORKDIR /opt/hello-node
 COPY package*.json ./
 RUN npm install
 
-#bundle everything
-COPY . .
+# install mysql-client to validate db status
+RUN apk update && \
+apk add mysql-client && \
+rm -f /var/cache/apk/*
+
+# copy wait-fo 
+COPY ./scripts ./scripts
+
+#bundle only the app
+COPY ./app.js .
 
 EXPOSE 9443
 CMD ["npm", "start"]

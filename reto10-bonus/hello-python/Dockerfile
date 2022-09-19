@@ -1,6 +1,17 @@
-FROM python:3.11.0a6-slim-buster
-RUN pip install flask
-RUN pip install pika
-COPY app.py /home/myapp/
+FROM python:3.7-alpine
+WORKDIR /home/myapp/
+
+RUN apk update
+
+COPY requirements.in .
+
+RUN pip install -U pip pip-tools \
+&& pip-compile requirements.in \
+&& pip-compile --upgrade \
+&& pip-sync
+
+COPY app.py .
+
 EXPOSE 8080
-CMD python3 /home/myapp/app.py
+
+CMD python3 ./app.py
